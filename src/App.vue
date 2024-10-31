@@ -3,6 +3,7 @@
 </script>
 
 <template>
+<!--  test-->
   <div class="app">
     <slot name="title"></slot>
   </div>
