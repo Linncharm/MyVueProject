@@ -14,7 +14,26 @@
   <div class="common-layout">
     <el-container>
       <el-header>
-        <RouterLink to="/home">Home</RouterLink>
+        <el-menu
+          mode="horizontal"
+          class="header-menu"
+          :ellipsis="false"
+          router
+        >
+          <el-menu-item 
+            index="/"
+            class="header-menu-item"
+            >
+            Back To Blog
+          </el-menu-item>
+          <el-menu-item 
+            index="/"
+            class="header-menu-item"
+            >
+            Back To Blog
+          </el-menu-item>
+          
+        </el-menu>
       </el-header>
       <el-container>
         <el-aside width="200px">
@@ -34,15 +53,15 @@
                   <span>Project One</span>
                 </template>
                 <el-menu-item-group>
-                  <el-menu-item index="/home/tree">
+                  <el-menu-item index="/blog/home/tree">
                     <el-icon><document/></el-icon>
                     Tree
                   </el-menu-item>
-                  <el-menu-item index="/home/table">
+                  <el-menu-item index="/blog/home/table">
                     <el-icon><document/></el-icon>
                     Table
                   </el-menu-item>
-                  <el-menu-item index="/home/svg">
+                  <el-menu-item index="/blog/home/svg">
                     <el-icon><document/></el-icon>
                     Svg
                   </el-menu-item>
@@ -95,7 +114,7 @@
         </el-aside>
         <el-container>
           <el-main>
-
+            Project-Main
             <RouterView v-slot="{ Component }">
               <component :is="Component" >
                 <template #title>
@@ -109,10 +128,25 @@
         </el-container>
       </el-container>
     </el-container>
+    <span>CommonLayout</span>
   </div>
 </template>
 
 <style scoped>
+.header-menu{
+  background:var(--header-bg);
+  border-radius: 10px;
+  width: fit-content;
+}
+.header-menu-item{
+  background: orange;
+  border-radius: 10px;
+}
+.common-layout{
+  height: 100%;
+  width: 100%;
+  background: gray;
+}
 .scrollbar-demo-item {
   display: flex;
   align-items: center;
@@ -126,6 +160,9 @@
 }
 .el-header{
   background: aquamarine;
+  --header-bg: aquamarine;
+  display: flex;
+  justify-content: left;
 }
 .el-aside{
   background: #f3d4ac;
